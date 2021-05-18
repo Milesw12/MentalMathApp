@@ -6,13 +6,42 @@
 
 2. Create Mental maths game
 
-3. set up database- user id, username, score
+3. set up database- user id, username, score DONE
 
 4. get name from user and insert into db
 
 5. user plays game and score is written to databse
 
 6. leaderboard shows users postion in leaderboard
+
+
+
+
+
+loop of: (while timer is > = 0 but < 30 secs)	
+Take operator from random
+	add 1 to total_questions
+	take two numbers from random
+	calculate value of answer
+	output number + operator + number
+	take answer in from user
+	compare answer to correct answer
+		if answer is same as correct:
+			add 1 point to score
+
+		else:
+		nothing
+		continue
+			
+
+Display score out of total_questions
+
+
+
+
+
+
+
 
 
 

@@ -9,7 +9,7 @@ var op = document.getElementById("op");
 var response = document.getElementById("response"); // used for Try Again text
 var results = document.getElementById("results");
 var category = document.getElementById("category");
-
+var timing = document.getElementById("Timer")
 /***** STATE VARIABLES *****/
 var timeleft = 30;
 var num1;
@@ -18,6 +18,7 @@ var answer;
 
 var startTime;
 var endTime;
+var timerId = setInterval(countdown, 1000);
 
 var count; // number of correct answers
 var times = [];
@@ -26,18 +27,22 @@ var times = [];
 inputField.className = "hide";
 stopButton.className = "hide";
 
+
 /***** EVENTS *****/
 startButton.onclick = function() {
 	// initializing the count
+function countdown(){	
 	count = 0;
 	times = [];
 	results.innerHTML = ""; // clear results
 	category.innerHTML = ""; // clear category
+	if(timeleft != 0) {
 	refreshNums();
 	inputField.className = ""; // show the input field
 	stopButton.className = ""; // show the stop button
 	startButton.className = "hide"; // hide the start button
 	inputField.focus();
+	
 };
 
 form.onsubmit = function(e) {
@@ -57,7 +62,6 @@ stopButton.onclick = function() {
 		}
 		var mean = (total / times.length) / 1000;
 		resultString = "Average time: " + mean.toPrecision(4) + " sec";
-		categoryString = getCategory(mean);
 	} else {
 		resultString = "No results recorded. Hit the Enter key to submit your answers.";
 		categoryString = "";
@@ -85,8 +89,6 @@ var refreshNums = function() {
 	p.innerHTML = num1;
 	op.innerHTML = "+";
 	q.innerHTML = num2;
-	// Starting timer
-	startTime = new Date();
 };
 
 /*
@@ -111,18 +113,3 @@ var getAnswer = function() {
 	inputField.value = "";
 };
 
-var getCategory = function(mean) {
-	var c;
-	if (mean < 2) {
-		c = "Human Computer";
-	} else if (mean < 4) {
-		c = "Math Wiz";
-	} else if (mean < 7) {
-		c = "B Student";
-	} else if (mean < 10) {
-		c = "Probably Drunk";
-	} else {
-		c = "High School Drop Out";
-	}
-	return c;
-};
