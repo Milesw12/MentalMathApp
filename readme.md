@@ -4,7 +4,7 @@
 # Todo
 1. set up subdomain hosting with database: DONE
 
-2. Create Mental maths game
+2. Create Mental maths game DONE
 
 3. set up database- user id, username, score DONE
 

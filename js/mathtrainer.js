@@ -80,7 +80,7 @@
 			$('#answer').val('');
 			$('#currentquestion').text(question.a + '\xA0' + sign + '\xA0' +
 				question.b);
-			$('#progress').text(i18n.t('messages.score', {total: stats.total, skipped: stats.skipped}));
+			$('#progress').text(i18n.t('messages.score',{total: stats.total, skipped: stats.skipped}));
 		};
 
 		/**
@@ -313,7 +313,7 @@
 				timeString = config.minutes + ' ' + (config.minutes !== 1 ? i18n.t('labels.minutes') : i18n.t('labels.minute'));
 			}
 			$('#finalScore').text(
-				i18n.t('messages.finalScore', { scoreTime: timeString, scoreTotal: stats.total, scoreSkipped: stats.skipped })
+				i18n.t(`You answered ${stats.total} and skipped ${stats.skipped }`)
 			);
 		};
 
@@ -398,7 +398,7 @@
 
 		i18n.init(function(err, t) {
 			$('.i18n').i18n();
-			document.title = t('labels.appName');
+			document.title = t('Mental maths Quiz');
 		});
 
 		$("input[type=number]").change(function(e) {
