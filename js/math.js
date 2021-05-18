@@ -11,7 +11,7 @@ var results = document.getElementById("results");
 var category = document.getElementById("category");
 
 /***** STATE VARIABLES *****/
-var max = 20;
+var timeleft = 30;
 var num1;
 var num2;
 var answer;

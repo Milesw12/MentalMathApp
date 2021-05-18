@@ -2,7 +2,21 @@
 ## Mental Math app
  
 # Todo
-set up subdomain hosting with database
+1. set up subdomain hosting with database: DONE
+
+2. Create Mental maths game
+
+3. set up database- user id, username, score
+
+4. get name from user and insert into db
+
+5. user plays game and score is written to databse
+
+6. leaderboard shows users postion in leaderboard
+
+
+
+
 
 Premise:
 
