@@ -1,6 +1,7 @@
-<!doctype HTML>
+﻿<!doctype HTML>
 <html lang="en">
 	<head>
+		<?php include('header.php'); ?>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -40,6 +41,9 @@
 										<p>Enter name</p>
 										<input type="text" id="name">
 										<input type="submit" value="Submit">
+										<?php
+											$name = mysql_real_escape_string()
+											
 										
 									</div>
 								</div>
