@@ -7,8 +7,8 @@
 	var operators = {
 		add: {name: 'add', sign: '+',    result: function (a, b) { return a + b; }},
 		sub: {name: 'sub', sign: '-',    result: function (a, b) { return a - b; }},
-		mul: {name: 'mul', sign: '*', result: function (a, b) { return a * b; }},
-		div: {name: 'div', sign: '/', result: function (a, b) { return a / b; }}
+		mul: {name: 'mul', sign: 'x', result: function (a, b) { return a * b; }},
+		div: { name: 'div', sign: '/', result: function (a, b) { return a / b; }}
 	};
 
 	/**
@@ -29,7 +29,7 @@
 	};
 
 	/**
-	 * Statistics of the current run.
+	 * Delcared variabls to hold statistics of the current run.
 	 */
 	var stats = {
 		total: 0,
@@ -54,15 +54,17 @@
 	trainer.question = function () {
 		/**
 		 * Return a random integer between min and max.
-		 * 
 		 */
 		var randomInt = function (min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
+			return Math.floor(Math.random() * max) + min;
+			/**ensures numbers are whole numbers by returning greatest interger thats less than/ equal to the statement in ()
+			 * chooses a number between 0 and 1 then times by the maximum number set and adds 1 incase number comes out to 0 
+			 */
 		};
 
 		/**
 		 * Returns a random operator the user wants to use.
-		 * @returns {operators}
+		 * .length returns a number one up from the list of operators aka 5 so 1 is took off so 5 isnt chosen.
 		 */
 		var getRandomOperator = function () {
 			return operators[
@@ -76,7 +78,7 @@
 		 */
 		var updateQuestionText = function (sign) {
 			$('#answer').val('');
-			$('#currentquestion').text(question.a + '\xA0' + sign + '\xA0' +
+			$('#currentquestion').text(question.a + ' ' + sign + ' ' +
 				question.b);
 			$('#progress').text(i18n.t('messages.score',{total: stats.total, skipped: stats.skipped}));
 		};
