@@ -26,7 +26,7 @@ Take operator from random
 	output number + operator + number
 	take answer in from user
 	compare answer to correct answer
-		if answer is same as correct:
+		if(answer is same as correct):
 			add 1 point to score
 
 		else:
