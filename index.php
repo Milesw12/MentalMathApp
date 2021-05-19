@@ -1,6 +1,7 @@
-﻿<!doctype HTML>
+﻿﻿<!doctype HTML>
 <header>
 	<a id="leaderboard" href="leaderboard.php">Leaderboard</a>
+	<?php include "db_connection.php"; ?>
 </header>
 <html lang="en">
 	<head>
@@ -14,7 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="css/mathtrainer.css" />
 		<title>Mental maths quiz</title>
 	</head>
-	
+	  
 
 	<body>
 		<div class="container"></div>
@@ -37,14 +38,16 @@
 
 										<div class="i18n" data-i18n="labels.timeOver"></div>
 
-										<span id="finalScore"></span>
 										
 										
-										<form action="insert.php" method="POST">
+										
+										<form action="submit.php" method="post">
+											<span id="finalScore" class="finalScore"></span>
 											<p>Enter name</p>
+											
 											<input type="text" id='name' name="name" placeholder="Enter name" Required>
-											<input hidden type="text" id='score' name="score" >
-											<input type="submit" value="Submit">
+											<input type="hidden" name="finalScore" value="<?php echo $finalScore; ?>">
+											<input name="submitBtn" type="submit" id="submitBtn" value="Submit">
 										</form>
 									</div>
 								</div>

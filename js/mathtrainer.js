@@ -311,6 +311,8 @@
 				i18n.t(`You answered ${stats.total} and skipped ${stats.skipped}`)
 			);
 			document.getElementById("score").value = stats.total;
+			var highscore = stats.total.toString();
+			document.cookie = 'highscore =' + highscore;
 		};
 
 		/**

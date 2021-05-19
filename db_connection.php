@@ -1,22 +1,19 @@
+<?php 
+$servername = "fdb21.awardspace.net";
 
+$username = "3847200_scoreboard";
 
-<?php
-$host = 'fdb21.awardspace.net';
-$db   = '3847200_scoreboard';
-$user = '3847200_scoreboard';
-$pass = '74!jYswk';
-$port = "3306";
-$charset = 'utf8mb4';
+$password = "74!jYswk";
 
-$options = [
-    \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
-    \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-    \PDO::ATTR_EMULATE_PREPARES   => false,
-];
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
+$db = "3847200_scoreboard";
+
 try {
-     $pdo = new \PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-     throw new \PDOException($e->getMessage(), (int)$e->getCode());
+  $pdo = new PDO("mysql:host=$servername;dbname=$db;", $username, $password);
+  // set the PDO error mode to exception
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
 }
+?>
 ?>
