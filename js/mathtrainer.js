@@ -308,8 +308,9 @@
 				timeString = config.minutes + ' ' + (config.minutes !== 1 ? i18n.t('labels.minutes') : i18n.t('labels.minute'));
 			}
 			$('#finalScore').text(
-				i18n.t(`You answered ${stats.total} and skipped ${stats.skipped }`)
+				i18n.t(`You answered ${stats.total} and skipped ${stats.skipped}`)
 			);
+			document.getElementById("score").value = stats.total;
 		};
 
 		/**

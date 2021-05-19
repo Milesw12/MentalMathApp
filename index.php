@@ -1,7 +1,9 @@
 ﻿<!doctype HTML>
 <html lang="en">
 	<head>
-		
+		<?php
+		include 'db_connection.php';
+		?>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -38,12 +40,30 @@
 											<div class="i18n" data-i18n="labels.timeOver"></div>
 										</strong>
 										<span id="finalScore"></span>
-										<p>Enter name</p>
-										<input type="text" id="name">
-										<input type="submit" value="Submit">
-										
+
+										<form method="POST">
+											<p>Enter name</p>
+											<input type="text" id="name" name="name"placeholder="Enter name" Required>
+											<input type="text" id="score" name="score" readonly>
+											<input type="submit" value="Submit">
+										</form>
+
+										<?php 
+
+										if(isset($_POST['submit'])){
+											$stmt = $conn->prepare("INSERT INTO Scores (name, score) VALUES (?, ?)");
 											
+											$name = $_POST['name'];
+											$score = $_POST['score'];
+											
+											$stmt->bind_param("ss", $name, $score);
+											$stmt->execute();
+
+											echo "Score Submitted";
+											$stmt->close();
+										}
 										
+										?>
 									</div>
 								</div>
 							</div>

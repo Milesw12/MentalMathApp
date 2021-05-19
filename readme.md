@@ -8,6 +8,8 @@
 
 3. set up database- user id, username, score DONE
 
+Get website on sub
+
 4. get name from user and insert into db
 
 5. user plays game and score is written to databse
