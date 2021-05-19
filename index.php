@@ -1,7 +1,7 @@
 ﻿<!doctype HTML>
 <html lang="en">
 	<head>
-		<?php include('header.php'); ?>
+		
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -41,8 +41,7 @@
 										<p>Enter name</p>
 										<input type="text" id="name">
 										<input type="submit" value="Submit">
-										<?php
-											$name = mysql_real_escape_string()
+										
 											
 										
 									</div>
@@ -61,7 +60,7 @@
 										</div>
 										<div class="form-group">
 											<div class="col-xs-12">
-												<p><span class="i18n" data-i18n="labels.createProblemsInRange"></span></p>
+												<p hidden><span class="i18n" data-i18n="labels.createProblemsInRange"></span></p>
 											</div>
 											<div hidden class="col-xs-12 col-sm-6">
 												<div class="input-group">
@@ -161,9 +160,9 @@
 								</div>
 								<div class="row top-margin">
 									<div class="col-xs-12 text-center">
-									 	<button type="button" class="btn btn-danger col-xs-12" id="quittooptions">
+									 	<button type="button" class="btn btn-danger col-xs-12" id="quit">
 											<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-											<span class="i18n" data-i18n="labels.quitToOptions"></span>
+											<span class="i18n" data-i18n="labels.quit"></span>
 										</button>
 									</div>
 								</div>

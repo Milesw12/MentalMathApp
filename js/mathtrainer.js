@@ -12,10 +12,10 @@
 	};
 
 	/**
-	 * Configuration parameters provided by the user.
+	 * Configuration parameters.
 	 *  min: The smallest number to use in the questions.
 	 *  max: The largest number to use in the questions.
-	 *  minutes: The number of minutes the trainer should run for.
+	 *  minutes: The number of minutes the test should run for. 
 	 *  avoidNegatives: If true, guarantees that subtraction results are never 
 	 *     negative. Only takes effect if min >= 0.
 	 *  operators: The operators to use in the questions.
@@ -54,9 +54,7 @@
 	trainer.question = function () {
 		/**
 		 * Return a random integer between min and max.
-		 * @param {Number} min lower bound
-		 * @param {Number} max upper bound
-		 * @returns {Number} Random int in [min, max]
+		 * 
 		 */
 		var randomInt = function (min, max) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -435,7 +433,7 @@
 			$("#answer").focus();
 		});
 
-		$('#quittooptions').click(function () {
+		$('#quit').click(function () {
 			$('#timer').countdown('stop');
 		});
 
