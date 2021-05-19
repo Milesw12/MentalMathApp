@@ -1,19 +1,22 @@
-<?php 
-$servername = "fdb21.awardspace.net";
 
-$username = "3847200_scoreboard";
 
-$password = "74!jYswk";
+<?php
+$host = 'fdb21.awardspace.net';
+$db   = '3847200_scoreboard';
+$user = '3847200_scoreboard';
+$pass = '74!jYswk';
+$port = "3306";
+$charset = 'utf8mb4';
 
-$db = "3847200_scoreboard";
-
-$conn = mysqli_connect($servername, $username, $password, $db );
-
-if(!$conn) {
-	die("Connection failed: ".mysqli_connect_error());
-
+$options = [
+    \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
+    \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+    \PDO::ATTR_EMULATE_PREPARES   => false,
+];
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
+try {
+     $pdo = new \PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-
-echo "Connected Successfully"
-
 ?>

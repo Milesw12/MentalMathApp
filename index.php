@@ -1,9 +1,9 @@
 ﻿<!doctype HTML>
+<header>
+	<a id="leaderboard" href="leaderboard.php">Leaderboard</a>
+</header>
 <html lang="en">
 	<head>
-		<?php
-		include 'db_connection.php';
-		?>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -14,12 +14,10 @@
 		<link rel="stylesheet" type="text/css" href="css/mathtrainer.css" />
 		<title>Mental maths quiz</title>
 	</head>
-    <header>
-        <a id="leaderboard" href="leaderboard.php">Leaderboard</a>
-    </header>
+	
 
 	<body>
-		<div class="container">
+		<div class="container"></div>
 			<h1>Mental Math</h1>
 			<h2>How fast are you?</h2>
 			
@@ -35,35 +33,19 @@
 
 							<div class="row">
 								<div class="col-xs-12">
-									<div class="alert alert-success" id="score" style="display: none;">
-										<strong>
-											<div class="i18n" data-i18n="labels.timeOver"></div>
-										</strong>
-										<span id="finalScore"></span>
+									<div class="alert alert-success" id="score" style="display: none">
 
-										<form method="POST">
+										<div class="i18n" data-i18n="labels.timeOver"></div>
+
+										<span id="finalScore"></span>
+										
+										
+										<form action="insert.php" method="POST">
 											<p>Enter name</p>
-											<input type="text" id="name" name="name"placeholder="Enter name" Required>
-											<input type="text" id="score" name="score" readonly>
+											<input type="text" id='name' name="name" placeholder="Enter name" Required>
+											<input hidden type="text" id='score' name="score" >
 											<input type="submit" value="Submit">
 										</form>
-
-										<?php 
-
-										if(isset($_POST['submit'])){
-											$stmt = $conn->prepare("INSERT INTO Scores (name, score) VALUES (?, ?)");
-											
-											$name = $_POST['name'];
-											$score = $_POST['score'];
-											
-											$stmt->bind_param("ss", $name, $score);
-											$stmt->execute();
-
-											echo "Score Submitted";
-											$stmt->close();
-										}
-										
-										?>
 									</div>
 								</div>
 							</div>
@@ -180,7 +162,7 @@
 								</div>
 								<div class="row top-margin">
 									<div class="col-xs-12 text-center">
-									 	<button type="button" class="btn btn-danger col-xs-12" id="quit">
+										<button type="button" class="btn btn-danger col-xs-12" id="quit">
 											<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 											<span class="i18n" data-i18n="labels.quit"></span>
 										</button>
@@ -203,3 +185,6 @@
 		Created by Miles Wootton for use of Ucademy job interview
 	</footer>
 </html>
+<footer>
+	Created by Miles Wootton for use of Ucademy job interview
+</footer>
