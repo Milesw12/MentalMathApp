@@ -12,7 +12,14 @@
 
 5. user plays game and score is written to databse
 
-6. leaderboard shows users postion in leaderboard
+6. leaderboard shows users postion in 
+
+
+check through js script, add comments to assist in explaination
+
+
+
+day 1 + 2, unable to use database, web hosting FTP is still down cant upload to start working with sql
 
 
 
