@@ -13,7 +13,7 @@
 		<title>Mental maths quiz</title>
 	</head>
     <header>
-        <a id="leaderboard" href="leaderboard.html">Leaderboard</a>
+        <a id="leaderboard" href="leaderboard.php">Leaderboard</a>
     </header>
 
 	<body>
@@ -127,7 +127,7 @@
 									<div class="col-xs-2 text-left">
 										<h3><div id="timer"></div></h3>
 									</div>
-									<div hidden class="col-xs-10 text-right">
+									<div class="col-xs-10 text-right">
 										<h4><div id="progress"></div></h4>
 									</div>
 								</div>

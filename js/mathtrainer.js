@@ -7,8 +7,8 @@
 	var operators = {
 		add: {name: 'add', sign: '+',    result: function (a, b) { return a + b; }},
 		sub: {name: 'sub', sign: '-',    result: function (a, b) { return a - b; }},
-		mul: {name: 'mul', sign: 'x', result: function (a, b) { return a * b; }},
-		div: { name: 'div', sign: '/', result: function (a, b) { return a / b; }}
+		mul: {name: 'mul', sign: '\xD7', result: function (a, b) { return a * b; }},
+		div: { name: 'div', sign: '\xF7', result: function (a, b) { return a / b; }}
 	};
 
 	/**
@@ -24,12 +24,11 @@
 		min: 1,
 		max: 12,
 		minutes: 0.5,
-		avoidNegatives: true,
-		operators: ['add', 'div', 'mul', 'sub']
+		operators: ['add', 'sub', 'mul', 'div']
 	};
 
 	/**
-	 * Delcared variabls to hold statistics of the current run.
+	 * Declared variables to hold statistics of the current run.
 	 */
 	var stats = {
 		total: 0,
@@ -53,7 +52,7 @@
 	 */
 	trainer.question = function () {
 		/**
-		 * Return a random integer between min and max.
+		 * Return a random integer between min and max. 
 		 */
 		var randomInt = function (min, max) {
 			return Math.floor(Math.random() * max) + min;
@@ -63,8 +62,8 @@
 		};
 
 		/**
-		 * Returns a random operator the user wants to use.
-		 * .length returns a number one up from the list of operators aka 5 so 1 is took off so 5 isnt chosen.
+		 * Returns a random operator to use in question.
+		 * config.operators.length returns a number of entries in array of operators (4 entries + 1) so 1 is took off so 5 isnt chosen.
 		 */
 		var getRandomOperator = function () {
 			return operators[
@@ -74,13 +73,13 @@
 
 		/**
 		 * Updates the HTML document with the data from the question.
-		 * @param {String} sign The sign symbol of the operator used in the question
+		 * 
 		 */
 		var updateQuestionText = function (sign) {
 			$('#answer').val('');
 			$('#currentquestion').text(question.a + ' ' + sign + ' ' +
 				question.b);
-			$('#progress').text(i18n.t('messages.score',{total: stats.total, skipped: stats.skipped}));
+			$('#progress').text(i18n.t(`total: ${stats.total} skipped: ${stats.skipped}`));
 		};
 
 		/**
@@ -91,11 +90,7 @@
 			var b = randomInt(config.min, config.max);
 
 			var operator = getRandomOperator();
-			if (operator.name === 'sub' && config.avoidNegatives) {
-				// Ensure that a <= b when config.avoidNegatives is true
-				var ab = a > b ? [b, a] : [a, b];
-				a = ab[1];
-				b = ab[0];
+			if (operator.name === 'sub') {
 				question.result = a - b;
 			} else if (operator.name === 'div') {
 				var mulResult = a * b;
