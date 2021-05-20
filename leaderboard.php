@@ -1,5 +1,4 @@
-<h1>LeaderBoard set up</h1>
-
+<h1>LeaderBoard</h1>
 <style>
 table {
 width: 70%;
@@ -17,7 +16,6 @@ border: 1px #000000;
 tr:nth-child(even) {background-color: #f2f2f2}
 </style>
 <body>
-<h3>There are <?php echo $count; ?> results in the leaderboard!</h3>
 <table>
 <tr>
 <th>Name</th>
@@ -32,7 +30,9 @@ $stmt1->execute([
 	]);
 $count = $stmt1->rowCount();
 if ($count > 0) {
+echo "<h2> no. of entries: ". $count . "</h2>";
 while($board = $stmt1->fetch(PDO::FETCH_ASSOC)){
+	
 	echo "<tr><td>" . $board["name"]. "</td><td>" . $board["score"]. "</td> </tr> <br>";
 
 }
