@@ -1,28 +1,35 @@
 
 #leaderboard {
-	border: 2px solid greenyellow;
-	font-size: 2em;
-	padding: 30px;
-	position: absolute;
-	top: 15px;
-	right:15px
+    border: 2px solid greenyellow;
+    font-size: 2em;
+    padding: 30px;
+    position: absolute;
+    top: 15px;
+    right:15px
+}
+@font-face {
+    font-family: glyphicons-halflings-regular;
+    src: url(fonts/glyphicons-halflings-regular.ttf) format('truetype')
 }
 h1 {
-	font-size: 4em;
+    font-size: 4em;
+    font-family:glyphicons-halflings-regular;
+    
 }
 
 h2 {
-	font-size: 2em;
+    font-size: 2em;
+    font-family:glyphicons-halflings-regular;
 }
 
 footer {
-	position: fixed;
-  	left:0;
-	bottom: 0;
-  	width: 100%;
-  	height: 2.5rem; 
-	background-color: black;
-	color: #ffffff;
-	text-align: center;
-	
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    
 }
