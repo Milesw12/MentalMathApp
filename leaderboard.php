@@ -16,29 +16,30 @@ border: 1px #000000;
 tr:nth-child(even) {background-color: #f2f2f2}
 </style>
 <body>
-<table>
-<tr>
-<th>Name</th>
-<th>Score</th>
-</tr>
-<?php include "db_connection.php";
 
-$sql2 = "SELECT * FROM Scores ORDER BY score DESC";
-$stmt1 = $pdo->prepare($sql2);
-$stmt1->execute([
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Score</th>
+		</tr>
+	<?php include "db_connection.php";
+
+	$sql2 = "SELECT * FROM Scores ORDER BY score DESC";
+	$stmt1 = $pdo->prepare($sql2);
+	$stmt1->execute([
 	
-	]);
-$count = $stmt1->rowCount();
-if ($count > 0) {
-echo "<h2> no. of entries: ". $count . "</h2>";
-while($board = $stmt1->fetch(PDO::FETCH_ASSOC)){
+		]);
+	$count = $stmt1->rowCount();
+	if ($count > 0) {
+	echo "<h2> no. of entries: ". $count . "</h2>";
+	while($board = $stmt1->fetch(PDO::FETCH_ASSOC)){
 	
-	echo "<tr><td>" . $board["name"]. "</td><td>" . $board["score"]. "</td> </tr> <br>";
+		echo "<tr><td>" . $board["name"]. "</td><td>" . $board["score"]. "</td> </tr>";
 
-}
-echo "</table>";
-} else{ echo "0 Results"; }
+	}
+	echo "</table>";
+	} else{ echo "0 Results"; }
 
 
 
-?>
+	?>

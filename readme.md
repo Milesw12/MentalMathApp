@@ -8,13 +8,19 @@
 
 3. set up database- user id, username, score DONE
 
-Get website on sub
+Get website on sub DONE
 
-4. get name from user and insert into db
+4. get name from user and insert into db DONE
 
-5. user plays game and score is written to databse
+5. user plays game and score is written to databse DONE
 
-6. leaderboard shows users postion in 
+6. leaderboard shows users postion in  DONE
+
+Get users percentage ranking
+
+
+
+
 
 
 check through js script, add comments to assist in explaination
